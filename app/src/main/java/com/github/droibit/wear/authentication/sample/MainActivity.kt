@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.wearable.activity.WearableActivity
 import android.view.View
+import com.crashlytics.android.Crashlytics
 
 class MainActivity : WearableActivity() {
 
@@ -14,5 +15,9 @@ class MainActivity : WearableActivity() {
 
   fun onTwitterLoginButtonClick(v: View) {
     startActivity(Intent(this, TwitterActivity::class.java))
+  }
+
+  fun onCrashButtonClick(v: View) {
+    Crashlytics.getInstance().crash()
   }
 }
