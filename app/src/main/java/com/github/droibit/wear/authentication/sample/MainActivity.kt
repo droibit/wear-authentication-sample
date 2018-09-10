@@ -17,6 +17,10 @@ class MainActivity : WearableActivity() {
     startActivity(Intent(this, TwitterActivity::class.java))
   }
 
+  fun onGoogleSignInButtonClick(v: View) {
+    startActivity(Intent(this, GoogleActivity::class.java))
+  }
+
   fun onCrashButtonClick(v: View) {
     Crashlytics.getInstance().crash()
   }
