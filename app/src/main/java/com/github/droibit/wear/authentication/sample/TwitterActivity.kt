@@ -2,7 +2,7 @@ package com.github.droibit.wear.authentication.sample
 
 import android.net.Uri
 import android.os.Bundle
-import android.support.v4.app.FragmentActivity
+import androidx.fragment.app.FragmentActivity
 import android.support.wearable.authentication.OAuthClient
 import android.widget.Toast
 import com.twitter.sdk.android.core.Callback
@@ -19,7 +19,7 @@ import com.twitter.sdk.android.core.services.StatusesService
 import kotlinx.android.synthetic.main.activity_twitter.label
 import timber.log.Timber
 
-class TwitterActivity : FragmentActivity() {
+class TwitterActivity : androidx.fragment.app.FragmentActivity() {
 
   private lateinit var oauthClient: OAuthClient
 
