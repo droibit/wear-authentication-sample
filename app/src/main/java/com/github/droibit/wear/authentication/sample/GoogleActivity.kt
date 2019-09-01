@@ -20,7 +20,7 @@ class GoogleActivity : FragmentActivity() {
     setContentView(R.layout.activity_google)
 
     val lastSignedInAccount: GoogleSignInAccount? = GoogleSignIn.getLastSignedInAccount(this)
-    Timber.d("Google Account: ${lastSignedInAccount?.toJson()}")
+    Timber.d("Google Account: ${lastSignedInAccount?.displayName}")
 
     val fitnessOptions = FitnessOptions.builder()
         .addDataType(DataType.TYPE_STEP_COUNT_CUMULATIVE)
@@ -48,9 +48,9 @@ class GoogleActivity : FragmentActivity() {
     if (resultCode == Activity.RESULT_OK) {
       if (requestCode == REQUEST_OAUTH_REQUEST_CODE) {
         try {
-          val account: GoogleSignInAccount = GoogleSignIn.getSignedInAccountFromIntent(data)
+          val account: GoogleSignInAccount? = GoogleSignIn.getSignedInAccountFromIntent(data)
               .getResult(ApiException::class.java)
-          Timber.d("Google SignIn succeeded: ${account.displayName}")
+          Timber.d("Google SignIn succeeded: ${account?.displayName}")
           label.text = "Succeeded."
         } catch (e: ApiException) {
           Timber.e(e)
